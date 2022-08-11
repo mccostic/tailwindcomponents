@@ -1,10 +1,10 @@
-export default function Ic_Menu() {
+export default function Ic_Menu({width, height}) {
   return (
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="30"
+        width={width}
+        height={height}
         viewBox="0 0 30 30"
       >
         <g id="ic_menu" transform="translate(-344 -466)">
@@ -19,7 +19,7 @@ export default function Ic_Menu() {
             id="Icon"
             d="M166-49h18v-2H166v2Zm0-5h18v-2H166v2Zm0-7v2h18v-2Z"
             transform="translate(184 536)"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </g>
       </svg>

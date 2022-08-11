@@ -1,13 +1,14 @@
-
 import "./App.css";
-import Layout from "./components/layout/layout";
-import 'antd/dist/antd.less' // eslint-disable-next-line
+import "antd/dist/antd.less"; // eslint-disable-next-line
+import LayoutContent from "./components/layout/layout";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-
   return (
     <>
-      <Layout></Layout>
+      <BrowserRouter>
+        <LayoutContent></LayoutContent>
+      </BrowserRouter>
     </>
   );
 }
