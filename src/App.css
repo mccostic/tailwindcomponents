@@ -1,9 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
+h2 {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ant-menu-vertical {
+  border: 0 !important;
+}
+
+.ant-menu-item a::before {
+  position: relative !important;
+}
+
+.ant-menu {
+  background-color: #0178ff !important;
+  color: white !important;
+}
+
+.ant-menu-item  a{
+  color: white !important;
+  font-weight: 600;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent !important;
+  color: #0178ff !important;
+}
+
 body {
   overflow: hidden;
   font-family: "Open Sans", sans-serif;
 }
+
 
 .sidebar {
   background-color: #0178ff !important;
@@ -11,6 +40,8 @@ body {
   max-width: 0px !important;
   min-width: 0px !important;
   flex: 0 0 0px !important;
+  position: absolute !important;
+  z-index: 30 !important;
 }
 
 .open {
@@ -18,12 +49,13 @@ body {
   max-width: 250px !important;
   min-width: 250px !important;
   flex: 0 0 250px !important;
-  position: fixed;
+  position: absolute !important;
   height: 100vh;
   top: 0;
   left: 0;
   bottom: 0;
-  overflow: auto;
+  /* overflow: auto; */
+  z-index: 30 !important;
 }
 
 .ant-form-item-label {
@@ -38,9 +70,9 @@ body {
     max-width: 250px !important;
     min-width: 250px !important;
     flex: 0 0 250px !important;
-    position: fixed;
-    height: 100vh;
+    position: absolute !important;
     top: 0;
+    height: 100vh;
     left: 0;
     bottom: 0;
     overflow: auto;
