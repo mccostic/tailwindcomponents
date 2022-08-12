@@ -1,15 +1,17 @@
 import { Button } from "antd";
-import React, { Children } from "react";
+import React from "react";
+import { StyledButton } from "../../style/styledComponents";
 
-export const CustomButton = ({ children, type, className, onClick, disabled }) => {
+export const CustomButton = ({ children, type, className, onClick, disabled, color }) => {
   return (
-    <Button
-      className={`rounded-md ${className} px-4 py-2 bg-[#0178ff] disabled:bg-opacity-75 disabled:cursor-not-allowed outline-none`}
+    <StyledButton
+      className={className}
       type={type}
+      color={color}
       onClick={onClick}
       disabled={disabled}
     >
       {children}
-    </Button>
+    </StyledButton>
   );
 };

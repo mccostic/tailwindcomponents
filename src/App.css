@@ -46,9 +46,8 @@ body {
 
 .open {
   width: 100% !important;
-  max-width: 250px !important;
-  min-width: 250px !important;
-  flex: 0 0 250px !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
   position: absolute !important;
   height: 100vh;
   top: 0;

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
 import { CustomInput } from "../../components/input/customInput";
+import { CustomItem } from "../../style/styledComponents";
 
 export const Register = () => {
   const { form } = useForm();
@@ -27,22 +28,22 @@ export const Register = () => {
             >
               <div className="flex flex-col gap-4">
                 <div className="flex gap-4">
-                  <Form.Item label="firstname" className="w-full">
+                  <CustomItem label="firstname" className="w-full">
                     <CustomInput type="text" />
-                  </Form.Item>
-                  <Form.Item label="lastname" className="w-full">
+                  </CustomItem>
+                  <CustomItem label="lastname" className="w-full">
                     <CustomInput type="text" />
-                  </Form.Item>
+                  </CustomItem>
                 </div>
-                <Form.Item label="displayname" className="w-full">
+                <CustomItem label="displayname" className="w-full">
                   <CustomInput type="text" />
-                </Form.Item>
-                <Form.Item label="email" className="w-full">
+                </CustomItem>
+                <CustomItem label="email" className="w-full">
                   <CustomInput type="email" />
-                </Form.Item>
-                <Form.Item label="password" className="w-full">
+                </CustomItem>
+                <CustomItem label="password" className="w-full">
                   <CustomInput type="password" />
-                </Form.Item>
+                </CustomItem>
                 <div className="flex items-center mt-4 justify-between">
                   <CustomButton
                     disabled

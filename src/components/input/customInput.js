@@ -1,13 +1,11 @@
 import { Input } from "antd";
 import React from "react";
+import { StyledInput } from "../../style/styledComponents";
 
 export const CustomInput = ({ type, placeholder }) => {
   return (
-    <Input
+    <StyledInput
       type={type}
-      className="px-4 py-2.5 w-full outline-none focus:border-[#0178ff] 
-                border-2 rounded-md border-gray-400 focus:shadow-md
-                placeholder-gray-500 font-medium text-[#0178ff]"
       placeholder={placeholder}
     />
   );

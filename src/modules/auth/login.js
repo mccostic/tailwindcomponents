@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
 import { CustomInput } from "../../components/input/customInput";
+import { CustomItem } from "../../style/styledComponents";
 
 const Login = () => {
   const { form } = useForm();
 
-  const handleChange = () => {}
+  const handleChange = () => {};
 
   const onFinish = () => {
-    alert("I have finished")
-  }
+    alert("I have finished");
+  };
 
   return (
     <div className="min-h-screen h-screen w-full">
@@ -21,23 +22,32 @@ const Login = () => {
         <div className="flex flex-col items-center justify-center w-full max-w-xl">
           <Logo width={72} height={72} />
           <div className="w-full max-w-sm mt-6">
-            <Form className="w-full" layout="vertical" onFinish={onFinish} form={form}>
+            <Form
+              className="w-full"
+              layout="vertical"
+              onFinish={onFinish}
+              form={form}
+            >
               <div className="flex flex-col gap-4">
-                <Form.Item label="email" className="w-full">
+                <CustomItem label="email">
                   <CustomInput type="email" />
-                </Form.Item>
-                <Form.Item label="password" className="w-full">
+                </CustomItem>
+                <CustomItem label="password">
                   <CustomInput type="password" />
-                </Form.Item>
+                </CustomItem>
                 <div className="flex items-center mt-4 justify-center flex-col gap-4">
                   <CustomButton
                     type="submit"
-                    className="text-white w-full"
+                    className="w-full font-medium"
+                    color="white"
                     disabled
                   >
                     Submit
                   </CustomButton>
-                  <Link to="/forgotpassword" className="text-[#0178ff] font-semibold">
+                  <Link
+                    to="/forgotpassword"
+                    className="text-[#0178ff] font-semibold"
+                  >
                     forgot password?
                   </Link>
                 </div>

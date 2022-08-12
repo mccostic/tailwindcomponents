@@ -5,12 +5,9 @@ import Login from "./modules/auth/login";
 import Dashboard from "./modules/dashboard";
 import { Register } from "./modules/auth/register";
 import { ForgotPassword } from "./modules/auth/forgotpassword";
-import { useSelector } from "react-redux";
 import ErrorPage from "./modules/404";
 
 function App() {
-
-  const auth = useSelector((state) => state.auth.isLoggedIn)
 
   return (
     <>

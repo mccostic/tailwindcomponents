@@ -5,6 +5,7 @@ import { BackButton } from "../../components/button/backButton";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
 import { CustomInput } from "../../components/input/customInput";
+import { CustomItem } from "../../style/styledComponents";
 
 export const ForgotPassword = () => {
   const { form } = useForm();
@@ -28,10 +29,10 @@ export const ForgotPassword = () => {
               form={form}
             >
               <div className="flex flex-col gap-4">
-                <Form.Item label="email" className="w-full">
+                <CustomItem label="email" className="w-full">
                   <CustomInput type="email" placeholder="johndoe@xyz.com" />
-                </Form.Item>
-                <div className="flex items-center mt-4 justify-between">
+                </CustomItem>
+                <div className="flex items-center mt-3 justify-between">
                   <CustomButton
                     disabled
                     type="submit"

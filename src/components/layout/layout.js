@@ -14,6 +14,8 @@ export default function LayoutContent({ children }) {
     { label: "Cards", key: "card", link: "card" },
     { label: "Buttons", key: "buttons", link: "buttons" },
     { label: "Testimonials", key: "testimonials", link: "testimonials" },
+    { label: "Apps", key: "apps" },
+    { label: "Works", key: "works" },
   ];
 
   const authMenuItems = [{ label: "Login", key: "login", link: "login" }];
