@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import Sider from "antd/lib/layout/Sider";
-import { hideSideBar, showSideBar } from "../../app/actions/actionTypes";
+import { hideSideBar, showSideBar } from "../../app/actions/dashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "../icons/logo";
 import Ic_Menu from "../icons/ic_menu";
@@ -32,12 +32,12 @@ export default function SideNav() {
       <div style={{ minHeight: "100vh" }}>
         <Sider
           collapsible
-          className={`sidebar ${!collapsed ? "" : "open"}` }
+          className={`sidebar ${!collapsed ? "" : "open"}`}
           onCollapse={() => dispatch(hideSideBar(collapsed))}
           trigger={null}
         >
           <div className="bg-white h-16 flex justify-between items-center p-4">
-            <Logo />
+            <Logo width={40} height={40} />
           </div>
           <div className="w-full text-white h-full p-4">
             {/* <Menu defaultSelectedKeys={["dashboard"]}>
