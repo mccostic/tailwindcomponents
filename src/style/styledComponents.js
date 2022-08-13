@@ -1,4 +1,4 @@
-import { Input, Form, Button } from "antd";
+import { Input, Form, Button, Menu } from "antd";
 import styled from "styled-components";
 
 const { Item } = Form;
@@ -49,3 +49,9 @@ export const StyledButton = styled(Button)`
   &:hover {
   }
 `;
+
+export const CustomMenuItem = styled(Menu.Item)`
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+`

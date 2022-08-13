@@ -2,6 +2,13 @@ import { Layout, Menu } from "antd";
 import Sider from "antd/lib/layout/Sider";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { CustomMenuItem } from "../../style/styledComponents";
+import { Ic_Apps } from "../icons/ic_apps";
+import { Ic_Components } from "../icons/ic_components";
+import { Ic_Dashboard } from "../icons/ic_dashboard";
+import { Ic_InteractiveCard } from "../icons/ic_interactivecard";
+import { Ic_Login } from "../icons/ic_login";
+import { Ic_Works } from "../icons/ic_works";
 import Nav from "../nav/nav";
 
 export default function LayoutContent({ children }) {
@@ -10,15 +17,29 @@ export default function LayoutContent({ children }) {
   const { Content } = Layout;
 
   const items = [
-    { label: "Dashboard", key: "dashboard", link: "/" },
-    { label: "Cards", key: "card", link: "card" },
-    { label: "Buttons", key: "buttons", link: "buttons" },
-    { label: "Testimonials", key: "testimonials", link: "testimonials" },
-    { label: "Apps", key: "apps" },
-    { label: "Works", key: "works" },
+    {
+      label: "Dashboard",
+      key: "dashboard",
+      link: "/",
+      icon: <Ic_Dashboard width={32} height={32} />,
+    },
+    {
+      label: "Components",
+      key: "component",
+      link: "component",
+      icon: <Ic_Components width={32} height={32} />,
+    },
+    {
+      label: "Interactive Card",
+      key: "interactivecard",
+      link: "cards",
+      icon: <Ic_InteractiveCard width={32} height={32} />,
+    },
+    { label: "Apps", key: "apps", icon: <Ic_Apps width={32} height={32} /> },
+    { label: "Works", key: "works", icon: <Ic_Works width={32} height={32} /> },
   ];
 
-  const authMenuItems = [{ label: "Login", key: "login", link: "login" }];
+  const authMenuItems = [{ label: "Login", key: "login", link: "login", icon: <Ic_Login width={32} height={32}/> }];
 
   return (
     <Layout>
@@ -32,9 +53,9 @@ export default function LayoutContent({ children }) {
             <Menu defaultSelectedKeys={["card"]}>
               {items.map((i) => {
                 return (
-                  <Menu.Item key={i.key} className="my-4 w-full">
+                  <CustomMenuItem key={i.key} icon={i.icon} className="gap-4">
                     <NavLink to={`/${i.link}`}>{i.label}</NavLink>
-                  </Menu.Item>
+                  </CustomMenuItem>
                 );
               })}
             </Menu>
@@ -43,9 +64,9 @@ export default function LayoutContent({ children }) {
             <Menu>
               {authMenuItems.map((i) => {
                 return (
-                  <Menu.Item key={i.key} className="my-4 w-full">
+                  <CustomMenuItem key={i.key} icon={i.icon} className="gap-4">
                     <NavLink to={`/${i.link}`}>{i.label}</NavLink>
-                  </Menu.Item>
+                  </CustomMenuItem>
                 );
               })}
             </Menu>
