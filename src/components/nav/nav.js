@@ -4,7 +4,7 @@ import Ic_Menu from "../icons/ic_menu";
 import Logo from "../icons/logo";
 import { hideSideBar, showSideBar } from "../../app/actions/dashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { DropdownProfile } from "../dropdownProfile"
+import { DropdownProfile } from "../dropdown/dropdownProfile"
 
 export default function Nav() {
   const collapsed = useSelector((state) => state.tc.sidebar);
