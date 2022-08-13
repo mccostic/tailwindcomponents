@@ -4,6 +4,7 @@ import Ic_Menu from "../icons/ic_menu";
 import Logo from "../icons/logo";
 import { hideSideBar, showSideBar } from "../../app/actions/dashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { DropdownProfile } from "../dropdownProfile"
 
 export default function Nav() {
   const collapsed = useSelector((state) => state.tc.sidebar);
@@ -11,8 +12,7 @@ export default function Nav() {
 
   const dispatch = useDispatch();
 
-  const logout = () => dispatch(auth.logout());
-
+  // const logout = () => dispatch(auth.logout());
   console.log(auth);
 
   const toggle = () => {
@@ -37,14 +37,7 @@ export default function Nav() {
               <button>
                 <Ic_Notifications width={36} height={36} />
               </button>
-              <Avatar
-                shape="circle"
-                style={{ backgroundColor: "#0178ff" }}
-                size={40}
-                className="font-bold"
-              >
-                SS
-              </Avatar>
+              <DropdownProfile/>
             </div>
             <div className="lg:hidden flex">
               <button onClick={() => toggle()}>

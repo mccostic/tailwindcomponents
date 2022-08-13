@@ -1,4 +1,4 @@
-import { Form, Input } from "antd";
+import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { CustomItem } from "../../style/styledComponents";
 const Login = () => {
   const { form } = useForm();
 
-  const handleChange = () => {};
+  // const handleChange = () => {};
 
   const onFinish = () => {
     alert("I have finished");

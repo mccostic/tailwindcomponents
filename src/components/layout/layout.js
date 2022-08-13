@@ -29,7 +29,7 @@ export default function LayoutContent({ children }) {
       <Sider className={`sidebar ${!collapsed ? "" : "open"} `}>
         <div className="h-screen w-full flex flex-col items-center justify-between">
           <div className="w-full mt-24">
-            <Menu defaultSelectedKeys={["dashboard"]}>
+            <Menu defaultSelectedKeys={["card"]}>
               {items.map((i) => {
                 return (
                   <Menu.Item key={i.key} className="my-4 w-full">
