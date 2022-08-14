@@ -33,7 +33,7 @@ export const StyledInput = styled(Input)`
 export const StyledButton = styled(Button)`
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  background-color: #0178ff;
+  background-color: ${(props) => props.bg ? "#DA292E" : "#0178ff"};
   cursor: pointer;
   color: ${(props) => props.color};
   outline: none;
