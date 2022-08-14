@@ -1,6 +1,6 @@
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
@@ -9,11 +9,17 @@ import { CustomItem } from "../../style/styledComponents";
 
 const Login = () => {
   const { form } = useForm();
+  const inputRef = useRef(null);
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  },[]);
   // const handleChange = () => {};
 
-  const onFinish = () => {
-    alert("I have finished");
+  const onFinish = (data) => {
+    console.log(data.email);
   };
 
   return (
@@ -30,7 +36,7 @@ const Login = () => {
             >
               <div className="flex flex-col gap-4">
                 <CustomItem label="email">
-                  <CustomInput type="email" />
+                  <CustomInput refs={inputRef} type="email" />
                 </CustomItem>
                 <CustomItem label="password">
                   <CustomInput type="password" />

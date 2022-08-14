@@ -2,7 +2,7 @@ import { Button } from "antd";
 import React from "react";
 import { StyledButton } from "../../style/styledComponents";
 
-export const CustomButton = ({
+export const DangerButton = ({
   children,
   type,
   className,
@@ -15,6 +15,7 @@ export const CustomButton = ({
       className={className}
       type={type}
       color={color}
+      bg
       onClick={onClick}
       disabled={disabled}
     >
