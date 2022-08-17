@@ -9,6 +9,7 @@ export const CustomButton = ({
   onClick,
   disabled,
   color,
+  bg
 }) => {
   return (
     <StyledButton
@@ -17,6 +18,7 @@ export const CustomButton = ({
       color={color}
       onClick={onClick}
       disabled={disabled}
+      bg={bg}
     >
       {children}
     </StyledButton>
