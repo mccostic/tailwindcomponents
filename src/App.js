@@ -18,7 +18,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Dashboard />} />
         </Route>
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage message="error 404" backMessage="please take a step back"/>} />
       </Routes>
     </>
   );

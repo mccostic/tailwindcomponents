@@ -29,7 +29,6 @@ h2 {
 }
 
 body {
-  overflow: hidden;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -71,7 +70,8 @@ body {
     flex: 0 0 250px !important;
     position: absolute !important;
     top: 0;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     left: 0;
     bottom: 0;
     overflow: auto;

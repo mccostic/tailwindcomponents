@@ -28,14 +28,14 @@ export const Register = () => {
 
   const [form] = Form.useForm();
 
-  const [, forceUpdate] = useState({}); // To disable submit button at the beginning.
+  // const [, forceUpdate] = useState({}); // To disable submit button at the beginning.
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
 
-    forceUpdate({});
+    // forceUpdate({});
   }, []);
 
   const handleChange = (e) => {
@@ -51,7 +51,7 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-screen h-screen w-full">
+    <div className="h-full flex items-center justify-center min-h-screen w-full">
       <div className="w-full p-5 h-full flex items-center justify-center">
         <div className="flex flex-col items-center gap-6 justify-center w-full max-w-xl">
           <Logo width={72} height={72} />

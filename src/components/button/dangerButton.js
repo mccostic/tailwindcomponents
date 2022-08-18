@@ -9,13 +9,14 @@ export const DangerButton = ({
   onClick,
   disabled,
   color,
+  bg
 }) => {
   return (
     <StyledButton
       className={className}
       type={type}
       color={color}
-      bg
+      bg={bg}
       onClick={onClick}
       disabled={disabled}
     >

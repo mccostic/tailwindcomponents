@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen h-screen w-full">
+    <div className="min-h-screen h-full flex items-center justify-center w-full">
       <div className="w-full p-5 h-full flex items-center justify-center">
         <div className="flex flex-col items-center justify-center w-full max-w-xl">
           <Logo width={72} height={72} />
