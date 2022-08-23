@@ -27,7 +27,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="p-4 h-16 bg-white flex items-center z-40 shadow-md top-0 left-0 justify-center w-full">
+      <div className="p-4 h-16 bg-white flex items-center z-40 shadow-md top-0 left-0 fixed justify-center w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex w-auto items-center">
             <Logo width={40} height={40} />
