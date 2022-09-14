@@ -10,9 +10,14 @@ import { CustomItem } from "../../style/styledComponents";
 export const ForgotPassword = () => {
   const { form } = useForm();
 
-  const onFinish = () => {
-    alert("i finished");
+  const onFinish = (values) => {
+    console.log("Success:", values);
   };
+
+  const onFinishError = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <div className="min-h-screen h-screen flex flex-col w-full">
       <div className="p-5">
@@ -26,17 +31,28 @@ export const ForgotPassword = () => {
               className="w-full"
               layout="vertical"
               onFinish={onFinish}
+              onFinishFailed={onFinishError}
               form={form}
             >
               <div className="flex flex-col gap-4">
-                <CustomItem label="email" className="w-full">
+                <CustomItem
+                  label="email"
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "please input email address",
+                    },
+                  ]}
+                >
                   <CustomInput type="email" placeholder="johndoe@xyz.com" />
                 </CustomItem>
                 <div className="flex items-center mt-3 justify-between">
                   <CustomButton
-                    disabled
+                    htmlType="submit"
                     type="submit"
-                    className="text-white w-full"
+                    className="w-full"
+                    color="white"
                   >
                     Submit
                   </CustomButton>

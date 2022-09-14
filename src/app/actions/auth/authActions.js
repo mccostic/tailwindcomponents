@@ -5,8 +5,7 @@ export const registerUser = createAsyncThunk(
   "auth/register",
   async ({ firstname, email, password }, { rejectWithValue }) => {
     try {
-      // await axios.post("https://cors-anywhere.herokuapp.com/http://localhost:4001/register", { firstname, email, password }, config);
-      await axios.post("http://localhost:5000/register", { firstname, email, password }, {headers: {
+      await axios.post("", { firstname, email, password }, {headers: {
         "Content-type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "*",
@@ -32,7 +31,7 @@ export const userLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "api/login",
+        "",
         { email, password },
         config
       );

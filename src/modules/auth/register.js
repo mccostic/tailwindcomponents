@@ -10,6 +10,7 @@ import { CustomInput } from "../../components/input/customInput";
 import { CustomItem } from "../../style/styledComponents";
 
 export const Register = () => {
+  
   const initialState = {
     firstname: "",
     lastname: "",
@@ -18,36 +19,24 @@ export const Register = () => {
     password: "",
   };
 
-  const { loading, error } = useSelector((state) => state.auth);
-
-  const [formData, setFormData] = useState(initialState);
-
-  const dispatch = useDispatch();
-
   const inputRef = useRef(null);
 
   const [form] = Form.useForm();
-
-  // const [, forceUpdate] = useState({}); // To disable submit button at the beginning.
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-
-    // forceUpdate({});
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = () => {};
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
   };
 
-  const onFinish = () => {
-    console.log("Finish:", form.getFieldsValue());
-    dispatch(registerUser(form.getFieldsValue))
+  const onFinishError = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -56,16 +45,27 @@ export const Register = () => {
         <div className="flex flex-col items-center gap-6 justify-center w-full max-w-xl">
           <Logo width={72} height={72} />
           <div className="w-full max-w-sm">
-            <Form className="w-full" layout="vertical" form={form}>
+            <Form
+              className="w-full"
+              layout="vertical"
+              form={form}
+              onFinish={onFinish}
+              onFinishFailed={onFinishError}
+            >
               <div className="flex flex-col gap-4">
                 <div className="flex gap-4">
                   <CustomItem
                     name="firstname"
                     label="firstname"
+                    rules={[
+                      {
+                        required: true,
+                        message: "please input firstname",
+                      },
+                    ]}
                     className="w-full"
                   >
                     <CustomInput
-                      value={formData.firstname}
                       onChange={handleChange}
                       refs={inputRef}
                       type="text"
@@ -74,10 +74,15 @@ export const Register = () => {
                   <CustomItem
                     name="lastname"
                     label="lastname"
+                    rules={[
+                      {
+                        required: true,
+                        message: "please input lastname",
+                      },
+                    ]}
                     className="w-full"
                   >
                     <CustomInput
-                      value={formData.lastname}
                       onChange={handleChange}
                       type="text"
                     />
@@ -90,31 +95,47 @@ export const Register = () => {
                 >
                   <CustomInput
                     type="text"
-                    value={formData.displayname}
                     onChange={handleChange}
                   />
                 </CustomItem>
-                <CustomItem name="email" label="email" className="w-full">
+                <CustomItem
+                  name="email"
+                  label="email"
+                  className="w-full"
+                  rules={[
+                    {
+                      required: true,
+                      message: "please input email",
+                    },
+                  ]}
+                >
                   <CustomInput
                     type="email"
-                    value={formData.email}
                     onChange={handleChange}
                   />
                 </CustomItem>
-                <CustomItem name="password" label="password" className="w-full">
+                <CustomItem
+                  name="password"
+                  label="password"
+                  className="w-full"
+                  rules={[
+                    {
+                      required: true,
+                      message: "please input password",
+                    },
+                  ]}
+                >
                   <CustomInput
                     type="password"
-                    value={formData.password}
                     onChange={handleChange}
                   />
                 </CustomItem>
                 <div className="flex items-center mt-4 justify-between">
                   <CustomButton
-                    // disabled
                     type="submit"
                     className="text-white w-full"
                     color="white"
-                    onClick={() => onFinish()}
+                    htmlType="submit"
                   >
                     Submit
                   </CustomButton>
