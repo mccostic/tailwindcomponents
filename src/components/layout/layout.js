@@ -20,7 +20,7 @@ export default function LayoutContent({ children }) {
     {
       label: "Dashboard",
       key: "dashboard",
-      link: "/",
+      link: "/dashboard",
       icon: <Ic_Dashboard width={32} height={32} />,
     },
     {

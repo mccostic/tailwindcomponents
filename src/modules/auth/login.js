@@ -13,13 +13,18 @@ const Login = () => {
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
-  },[]);
+  }, []);
+  
   // const handleChange = () => {};
 
-  const onFinish = (data) => {
-    console.log(data.email);
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishError = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -32,21 +37,35 @@ const Login = () => {
               className="w-full"
               layout="vertical"
               onFinish={onFinish}
+              onFinishFailed={onFinishError}
+              autoComplete="off"
               form={form}
             >
               <div className="flex flex-col gap-4">
-                <CustomItem label="email">
+                <CustomItem
+                  label="email"
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "please input email address",
+                    },
+                  ]}
+                >
                   <CustomInput refs={inputRef} type="email" />
                 </CustomItem>
-                <CustomItem label="password">
-                  <CustomInput type="password" />
+
+                <CustomItem label="password" name="password" rules={[{
+                  required: true,
+                  message: "please input password"
+                }]}>
+                  <CustomInput name="password" type="password" />
                 </CustomItem>
                 <div className="flex items-center mt-4 justify-center flex-col gap-4">
                   <CustomButton
-                    type="submit"
                     className="w-full font-medium"
                     color="white"
-                    disabled
+                    htmlType="submit"
                   >
                     Submit
                   </CustomButton>
@@ -57,16 +76,16 @@ const Login = () => {
                     forgot password?
                   </Link>
                 </div>
-                <div className="flex items-center mt-6 justify-center">
-                  <p className="text-center w-full max-w-[13rem]">
-                    Don’t have an account?{" "}
-                    <Link to="/register" className="font-bold text-[#0178ff]">
-                      Create Account
-                    </Link>
-                  </p>
-                </div>
               </div>
             </Form>
+            <div className="flex items-center mt-6 justify-center">
+              <p className="text-center w-full max-w-md">
+                Don’t have an account?{" "}
+                <Link to="/register" className="font-bold text-[#0178ff]">
+                  Create Account
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
