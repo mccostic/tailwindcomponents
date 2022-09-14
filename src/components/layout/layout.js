@@ -44,7 +44,7 @@ export default function LayoutContent({ children }) {
   return (
     <Layout>
       <Nav />
-      <Content className="lg:ml-[250px] z-10 text-black h-screen mt-16 min-h-screen p-6">
+      <Content className="lg:ml-[250px] z-10 text-black bg-white h-screen mt-16 min-h-screen p-6">
         {children}
       </Content>
       <Sider className={`sidebar ${!collapsed ? "" : "open"} `}>
