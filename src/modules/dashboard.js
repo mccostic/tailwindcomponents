@@ -1,11 +1,7 @@
-import { Skeleton } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import LayoutContent from "../components/layout/layout";
-import data from "../data/data";
 
 const Dashboard = () => {
-  const [blogs, setBlogs] = useState(data);
-
   const blogData = [
     {
       heading: "New Feature Interface",
@@ -31,7 +27,7 @@ const Dashboard = () => {
     <LayoutContent>
       <div className="bg-[#FAFBFC] shadow-md rounded-md w-full h-auto flex flex-col gap-4 p-6">
         <div className="flex flex-col w-full gap-4">
-          <h2 className="font-bold text-2xl">Activities</h2>
+          <h2 className="font-bold text-2xl text-[#0178FF]">Activities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 w-full gap-6 h-full">
             {blogData &&
               blogData.map((m, i) => {
@@ -65,6 +61,8 @@ const Dashboard = () => {
               })}
           </div>
         </div>
+
+        <div className=""></div>
       </div>
     </LayoutContent>
   );
