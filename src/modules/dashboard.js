@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import LayoutContent from "../components/layout/layout";
+import { config } from "../data/data";
+import { getGitrepo } from "../helpers/github";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 const Dashboard = () => {
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
   const blogData = [
     {
       heading: "New Feature Interface",
@@ -23,6 +44,10 @@ const Dashboard = () => {
       description: "",
     },
   ];
+
+  useEffect(() => {
+    getGitrepo();
+  }, []);
 
   return (
     <LayoutContent>
@@ -66,15 +91,19 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-white shadow-md shadow-[#1478FC3A] rounded-md w-full h-auto flex flex-col gap-4 p-6">
-          <div className="grid grid-cols-2 w-full gap-4">
-            <div>
+          <div className="grid md:grid-cols-2 w-full gap-4">
+            <div className="order-last md:order-first">
               <h2 className="font-bold text-2xl text-[#0178FF]">Charts</h2>
               <div>
-                {/* <Bar/> */}
+                <Bar {...config} />
               </div>
             </div>
-            <div>
+            <div className="flex gap-4 flex-col">
               <h2 className="font-bold text-2xl text-[#0178FF]">Github Data</h2>
+              <img
+                src="https://ghchart.rshah.org/Senninseyi"
+                alt="Senninseyi"
+              />
             </div>
           </div>
         </div>
