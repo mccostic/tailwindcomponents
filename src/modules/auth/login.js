@@ -1,6 +1,7 @@
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import React, { useEffect, useRef } from "react";
+import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
@@ -8,6 +9,15 @@ import { CustomInput } from "../../components/input/customInput";
 import { CustomItem } from "../../style/styledComponents";
 
 const Login = () => {
+  const baseUrl = "http://localhost:4000";
+
+  const initialState = {
+    email: "",
+    password: "",
+    error: "",
+    redirectToDashboard: false,
+  };
+
   const { form } = useForm();
   const inputRef = useRef(null);
 
@@ -16,11 +26,27 @@ const Login = () => {
       inputRef.current.focus();
     }
   }, []);
-  
-  // const handleChange = () => {};
+
+  // const handleChange = (name) => (e) => {
+  //   setValues({
+  //     ...values,
+  //     [name]: e.target.value,
+  //   });
+  // };
 
   const onFinish = (values) => {
-    console.log("Success:", values);
+    try {
+      axios.post(`${baseUrl}/login`, values).then((res) => {
+        localStorage.setItem("token", res.data.token)
+        console.log(res.data)
+      }).catch((err) => {
+        if (err.response) {
+          console.log(err.response.data);
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onFinishError = (errorInfo) => {
