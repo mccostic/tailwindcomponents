@@ -10,18 +10,9 @@ import { CustomInput } from "../../components/input/customInput";
 import { CustomItem } from "../../style/styledComponents";
 
 export const Register = () => {
-  
-  const initialState = {
-    firstname: "",
-    lastname: "",
-    displayname: "",
-    email: "",
-    password: "",
-  };
-
   const inputRef = useRef(null);
 
-  const [form] = Form.useForm();
+  const { form } = useForm();
 
   useEffect(() => {
     if (inputRef.current) {
@@ -29,10 +20,11 @@ export const Register = () => {
     }
   }, []);
 
-  const handleChange = () => {};
-
   const onFinish = (values) => {
-    console.log("Success:", values);
+    try {
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onFinishError = (errorInfo) => {
@@ -50,6 +42,7 @@ export const Register = () => {
               layout="vertical"
               form={form}
               onFinish={onFinish}
+              autoComplete="off"
               onFinishFailed={onFinishError}
             >
               <div className="flex flex-col gap-4">
@@ -65,11 +58,7 @@ export const Register = () => {
                     ]}
                     className="w-full"
                   >
-                    <CustomInput
-                      onChange={handleChange}
-                      refs={inputRef}
-                      type="text"
-                    />
+                    <CustomInput refs={inputRef} type="text" />
                   </CustomItem>
                   <CustomItem
                     name="lastname"
@@ -82,10 +71,7 @@ export const Register = () => {
                     ]}
                     className="w-full"
                   >
-                    <CustomInput
-                      onChange={handleChange}
-                      type="text"
-                    />
+                    <CustomInput type="text" />
                   </CustomItem>
                 </div>
                 <CustomItem
@@ -93,10 +79,7 @@ export const Register = () => {
                   label="displayname"
                   className="w-full"
                 >
-                  <CustomInput
-                    type="text"
-                    onChange={handleChange}
-                  />
+                  <CustomInput type="text" />
                 </CustomItem>
                 <CustomItem
                   name="email"
@@ -109,10 +92,7 @@ export const Register = () => {
                     },
                   ]}
                 >
-                  <CustomInput
-                    type="email"
-                    onChange={handleChange}
-                  />
+                  <CustomInput type="email" />
                 </CustomItem>
                 <CustomItem
                   name="password"
@@ -125,10 +105,7 @@ export const Register = () => {
                     },
                   ]}
                 >
-                  <CustomInput
-                    type="password"
-                    onChange={handleChange}
-                  />
+                  <CustomInput type="password" />
                 </CustomItem>
                 <div className="flex items-center mt-4 justify-between">
                   <CustomButton

@@ -1,7 +1,7 @@
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "../../components/button/customButton";
 import Logo from "../../components/icons/logo";
@@ -9,13 +9,6 @@ import { CustomInput } from "../../components/input/customInput";
 import { CustomItem } from "../../style/styledComponents";
 
 const Login = () => {
-
-  const initialState = {
-    email: "",
-    password: "",
-    error: "",
-    redirectToDashboard: false,
-  };
 
   const { form } = useForm();
   const inputRef = useRef(null);
@@ -25,13 +18,6 @@ const Login = () => {
       inputRef.current.focus();
     }
   }, []);
-
-  // const handleChange = (name) => (e) => {
-  //   setValues({
-  //     ...values,
-  //     [name]: e.target.value,
-  //   });
-  // };
 
   const onFinish = (values) => {
     try {
@@ -84,7 +70,7 @@ const Login = () => {
                   required: true,
                   message: "please input password"
                 }]}>
-                  <CustomInput name="password" type="password" />
+                  <CustomInput type="password" />
                 </CustomItem>
                 <div className="flex items-center mt-4 justify-center flex-col gap-4">
                   <CustomButton
