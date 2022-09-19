@@ -70,7 +70,7 @@ const Login = () => {
                   required: true,
                   message: "please input password"
                 }]}>
-                  <CustomInput name="password" type="password" />
+                  <CustomInput type="password" />
                 </CustomItem>
                 <div className="flex items-center mt-4 justify-center flex-col gap-4">
                   <CustomButton

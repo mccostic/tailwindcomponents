@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:4000";
-
 const getBackend = () => {
   try {
-    axios.get(`${baseUrl}`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}`)
       .then((res) => res.data)
       .then((data) => console.log(data));
   } catch (err) {
