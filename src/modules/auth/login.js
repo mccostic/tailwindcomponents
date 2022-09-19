@@ -9,7 +9,6 @@ import { CustomInput } from "../../components/input/customInput";
 import { CustomItem } from "../../style/styledComponents";
 
 const Login = () => {
-  const baseUrl = "http://localhost:4000";
 
   const initialState = {
     email: "",
@@ -36,7 +35,7 @@ const Login = () => {
 
   const onFinish = (values) => {
     try {
-      axios.post(`${baseUrl}/login`, values).then((res) => {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, values).then((res) => {
         localStorage.setItem("token", res.data.token)
         console.log(res.data)
       }).catch((err) => {
