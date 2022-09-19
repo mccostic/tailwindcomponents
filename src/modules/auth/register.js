@@ -1,5 +1,6 @@
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -22,6 +23,13 @@ export const Register = () => {
 
   const onFinish = (values) => {
     try {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/register`, values).then((res) => {
+        console.log(res.data);
+      }).catch ((err) => {
+        if (err.response) {
+          console.log(err.response.data);
+        }
+      })
     } catch (err) {
       console.log(err);
     }
@@ -48,7 +56,7 @@ export const Register = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex gap-4">
                   <CustomItem
-                    name="firstname"
+                    name="first_name"
                     label="firstname"
                     rules={[
                       {
@@ -61,7 +69,7 @@ export const Register = () => {
                     <CustomInput refs={inputRef} type="text" />
                   </CustomItem>
                   <CustomItem
-                    name="lastname"
+                    name="last_name"
                     label="lastname"
                     rules={[
                       {
@@ -75,7 +83,7 @@ export const Register = () => {
                   </CustomItem>
                 </div>
                 <CustomItem
-                  name="displayname"
+                  name="displayName"
                   label="displayname"
                   className="w-full"
                 >
