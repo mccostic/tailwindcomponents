@@ -18,7 +18,7 @@ h2 {
   color: white !important;
 }
 
-.ant-menu-item  a{
+.ant-menu-item a {
   color: white !important;
   font-weight: 600;
 }
@@ -32,7 +32,6 @@ body {
   font-family: "Open Sans", sans-serif;
   overflow: auto;
 }
-
 
 .sidebar {
   background-color: #0178ff !important;
@@ -61,6 +60,17 @@ body {
   margin-bottom: 5px !important;
   color: #0178ff !important;
   font-weight: 600;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset !important;
+  color: #0178ff;
+  border: 2px solid #0178ff;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #0178ff;
 }
 
 @media (min-width: 1024px) {

@@ -22,18 +22,15 @@ export const StyledInput = styled(Input)`
   color: #0178ff;
 
   &:focus {
-    border-color:#0178ff;
-  }
-
-  &:hover {
-    border-color:#0178ff;
+    border-color: #0178ff;
+    color: #0178ff;
   }
 `;
 
 export const StyledButton = styled(Button)`
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  background-color: ${(props) => props.bg ? "#DA292E" : "#0178ff"};
+  background-color: ${(props) => (props.bg ? "#DA292E" : "#0178ffA9")};
   cursor: pointer;
   color: ${(props) => props.color};
   outline: none;
@@ -47,6 +44,21 @@ export const StyledButton = styled(Button)`
   }
 
   &:hover {
+    background-color: #0178ff;
+    border-color: #0178ff;
+    color: white;
+  }
+
+  &:focus {
+    border-color: #0178ff;
+    background-color: #0178ff;
+    color: white;
+    
+    &:active {
+      border-color: #0178ff;
+      background-color: #0178ff;
+      color: white;
+    }
   }
 `;
 
@@ -54,4 +66,4 @@ export const CustomMenuItem = styled(Menu.Item)`
   display: flex;
   align-items: center;
   margin: 1rem 0;
-`
+`;
