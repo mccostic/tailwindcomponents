@@ -1,12 +1,18 @@
-import { Button } from 'antd'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Button } from "antd";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { CustomButton } from "./customButton";
 
 export const BackButton = () => {
-
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <Button onClick={() => navigate(-1)} className="font-bold text-[#0178ff]">Back</Button>
-  )
-}
+    <CustomButton
+      onClick={() => navigate(-1)}
+      color="white"
+      className="font-bold"
+    >
+      Back
+    </CustomButton>
+  );
+};
